@@ -1,0 +1,24 @@
+{
+  "default": {
+      "base": "",
+      "domain": "http://localhost:8080",
+      "port": "8080",
+      "secret": "CHANGE_ME",
+      
+      "cors.origin": "*",
+      "cors.methods": "OPTIONS, GET, POST",
+      "cors.maxAge": "2592000",
+
+      "mailer.url": "https://api.sparkpost.com/api/v1/transmissions",
+      "mailer.authorization": "CHANGE_ME",
+      "mailer.from": "CHANGE_ME",
+      "resetPassword.url": "http://localhost:8080/resetPassword?token="
+  },
+  "test": {
+      "db.url": "CHANGE_ME"
+  },
+  "production": {
+      "db.url": "CHANGE_ME"
+  }
+
+}
