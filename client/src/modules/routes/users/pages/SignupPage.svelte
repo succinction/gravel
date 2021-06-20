@@ -32,30 +32,37 @@
 
 <div class="col-md-8 col-md-offset-2">
   <form on:submit|preventDefault={handleSubmit}>
-		<div class="panel panel-default margin-top-xlg">
-			<div class="panel-heading">Sign Up</div>
-			<div class="panel-body">
-				<div class="col-md-6 form-group">
-					<label for="first_name">First Name</label>
-					<input type="text" class="form-control" bind:value={form.firstName}>
-				</div>
-				<div class="col-md-6 form-group">
-					<label for="last_name">Last Name</label>
-					<input type="text" class="form-control" bind:value={form.lastName}>
-				</div>
-				<div class="col-md-6 form-group">
-					<label for="email">Email Address</label>
-					<input type="text" class="form-control" bind:value={form.email}>
-				</div>
-				<div class="col-md-6 form-group">
-					<label for="password">Password</label>
-					<input type="password" class="form-control" bind:value={form.password}>
-				</div>
-				<div class="col-md-6 form-group">
+
+    <div class="mt-4">
+      <legend>
+        Sign Up
+      </legend>
+			<div class="form-group mt-2">
+        <label for="firstName">Firt Name</label>
+        <input type="lastName" class="form-control" bind:value={form.firstName} />
+      </div>
+			<div class="form-group mt-2">
+        <label for="password">Last Name</label>
+        <input type="password" class="form-control" bind:value={form.lastName} />
+      </div>
+      <div class="form-group mt-2">
+        <label for="email">Email Address</label>
+        <input type="text" class="form-control" bind:value={form.email} />
+      </div>
+      <div class="form-group mt-2">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" bind:value={form.password} />
+      </div>
+
+      <div class="row row-cols-auto mt-3">
+        <div class="col">
           <button type="submit" class="btn btn-primary">Sign Up</button>
-				</div>
-			</div>
-		</div>
-		<div class="text-center"><a href="/users/signin">Already have an Account? Sign In</a></div>
-	</form>
+        </div>
+        <div class="col mt-1">
+          <a href="/users/signin">Already have an Account? Sign In</a>
+        </div>
+      </div>
+    </div>
+
+  </form>
 </div>

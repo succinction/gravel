@@ -410,3 +410,238 @@ Table.defaultProps = {
 }
 
 module.exports = Table
+
+
+<style>
+/* Table */
+
+.table-component {
+	padding: 2em;
+	background-color: white;
+}
+
+.table-component h2.title,
+  .table-component input {
+	color: #756c6c;
+}
+
+.table-component .glyphicon {
+	color: #489CEE;
+}
+
+.table-component table {
+	width: 100%;
+	margin-top: 1.5em;
+    /* Reset the button margin */;
+}
+
+.table-component table .cell-title {
+	display: none;
+}
+
+.table-component table thead {
+	background-color: white;
+	border: none;
+	color: gray;
+}
+
+.table-component table thead .glyphicon {
+	margin-top: 5px;
+	padding-left: .5em;
+}
+
+.table-component table thead th {
+	font-weight: 500;
+	font-size: 14px;
+	background-color: transparent;
+}
+
+.table-component table tbody {
+	border: none;
+}
+
+.table-component table tbody td {
+	padding: 1rem .625rem 1rem;
+}
+
+.table-component table .button {
+	margin: 0;
+}
+
+.table-component table tr {
+	border-bottom: 1px solid #f5f5f5;
+	padding-bottom: 1em;
+}
+
+.table-component table tr:last-of-type {
+	border-bottom: none;
+}
+
+.table-component table tr td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: 0.5s;
+}
+
+.table-component table tr td.bold {
+	font-weight: 600;
+}
+
+.table-component table tr td a {
+	font-weight: 500;
+	color: #489CEE;
+	transition: 0.5;
+}
+
+.table-component table tr td a:hover {
+	text-decoration: none;
+	color: #1983ea;
+}
+
+.table-component table tr.nested {
+	background: #f5f5f5;
+}
+
+.table-component table tr.nested td ul {
+	overflow: auto;
+	max-height: 10rem;
+}
+
+.table-component table tr.nested td ul li {
+	padding: .2rem 0;
+	margin: 0;
+	line-height: 2rem;
+}
+
+.table-component .quickfilters {
+	font-size: .85em;
+}
+
+.table-component .select-component {
+	width: 65px;
+	float: right;
+}
+
+.table-component ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.table-component ul.pagination {
+	margin-top: 30px;
+}
+
+.table-component ul.pagination li {
+	font-size: .90em;
+}
+
+.table-component ul.pagination li.available a {
+	font-weight: bold;
+	color: #0a0a0a;
+}
+
+.table-component ul.pagination li.arrow {
+	vertical-align: 1px;
+}
+
+.table-component ul.pagination li.table-info {
+	color: #999999;
+}
+
+@media only screen and (max-width: 479px) {
+	.table-component .list-table {
+		margin: 1em 0;
+		min-width: 320px;
+	}
+
+	.table-component .list-table tr {
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.table-component .list-table th {
+		display: none;
+	}
+
+	.table-component .list-table td {
+		display: block;
+		text-align: left;
+	}
+
+	.table-component .list-table td:first-child {
+		padding-top: 1em;
+	}
+
+	.table-component .list-table td:last-child {
+		padding-bottom: 1em;
+	}
+
+	.table-component .list-table td .cell-title:after {
+		content: attr(data-th) ": ";
+		font-weight: bold;
+		width: 6.5em;
+		display: inline-block;
+	}
+
+	.table-component .list-table th, .table-component .list-table td {
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 479px) {
+	.list-table td.before {
+		display: none;
+	}
+
+	.list-table th, .list-table td {
+		display: table-cell;
+		padding: .25em .5em;
+	}
+
+	.list-table th:first-child, .list-table td:first-child {
+		padding-left: 0;
+	}
+
+	.list-table th:last-child, .list-table td:last-child {
+		padding-right: 0;
+	}
+}
+
+@media screen and (max-width: 39.9375em) {
+	.table-component table thead {
+		display: none;
+	}
+
+	.table-component table td {
+		font-size: 1.10em;
+		font-weight: normal;
+		width: 100%;
+		text-align: center;
+		margin: auto;
+		display: block;
+	}
+
+	.table-component table td strong {
+		font-weight: normal;
+	}
+
+	.table-component table td .cell-title {
+		display: block;
+		font-weight: bold;
+	}
+
+	.table-component table td:first-child {
+		padding-top: 15px;
+	}
+
+	.table-component table td:last-child {
+		padding-bottom: 15px;
+	}
+
+	.table-component .select-component {
+		margin: auto;
+		float: none;
+	}
+}
+</style>

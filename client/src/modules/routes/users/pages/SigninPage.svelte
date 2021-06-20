@@ -29,25 +29,31 @@
 <div class="col-md-8 col-md-offset-2">
   <form on:submit|preventDefault={handleSubmit}>
 
-    <div class="panel panel-default margin-top-xlg">
-
-      <div class="panel-heading">
+    <div class="mt-4">
+      <legend>
         Sign In
+      </legend>
+      <div class="form-group mt-2">
+        <label for="email">Email Address</label>
+        <input type="text" class="form-control" bind:value={form.email} />
       </div>
-      <div class="panel-body">
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="text" class="form-control" bind:value={form.email} />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" bind:value={form.password} />
-        </div>
+      <div class="form-group mt-2">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" bind:value={form.password} />
+      </div>
 
-        <button type="submit" class="btn btn-primary">Sign In</button> <a class="margin-left-sm" href="/users/forgot" > Forgot Password?</a>
+      <div class="row row-cols-auto mt-3">
+        <div class="col">
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+        <div class="col mt-1">
+          <a href="/users/forgot"> Forgot Password?</a>
+        </div>
+        <div class="col mt-1">
+          <a href="/users/signup">Need an Account? Sign Up</a>
+        </div>
       </div>
     </div>
-    <div class="text-center"><a href="/users/signup">Need an Account? Sign Up</a></div>
 
   </form>
 </div>
