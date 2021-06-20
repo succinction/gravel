@@ -4,12 +4,19 @@
   import { alertStore } from '../../alerts/stores/AlertStore'
   import { subscribe } from '../../../lib/helpers';
 
+  interface IButton {
+    onClick: () => void
+    text: string
+    type?: string
+  }
+
   export let onShow = (options?: Record<string, any>) => {}
   export let onHide = (options?: Record<string, any>) => {}
   export let id: string
   export let title: string = ''
   export let show: boolean = false
   export let zindex: number = 2000
+  export let buttons: IButton[] = []
 
   subscribe(modalStore, showModal, `${id}.show`)
   subscribe(modalStore, hideModal, `${id}.hide`)
@@ -24,7 +31,10 @@
     onShow(modal.options)
   }
 
-  function hideModal () {
+  function hideModal (e) {
+
+    if(e.target !== e.currentTarget) return
+
     const modal = modalStore.get()
 
     // Add the scroll bars back in for the body
@@ -41,7 +51,7 @@
 </script>
 
 {#if show}
-  <div id={id} class="modal" style="zindex:{zindex};" transition:fade tabIndex="-1">
+  <div id={id} class="modal" style="zindex:{zindex};" transition:fade tabIndex="-1" on:click={hideModal}>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -51,9 +61,13 @@
         <div class="modal-body">
           <slot></slot>
         </div>
+        {#if buttons.length}
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
+          {#each buttons as button}
+            <button type="button" on:click={button.onClick} class="btn btn-{button.type ||  'primary'}">{button.text}</button>
+          {/each}
         </div>
+        {/if}
       </div>
     </div>
   </div>
