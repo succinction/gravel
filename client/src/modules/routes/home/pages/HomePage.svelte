@@ -16,29 +16,15 @@
   <ThingOneModal />
   <ThingTwoModal />
   <h1>Hello Mates!</h1>
-  <p><button on:click={() => modalStore.show('thingOne')}>Thing One</button></p>
-  <p><button on:click={() => modalStore.show('thingTwo')}>Thing Two</button></p>
-  <p> <a href="/about">About</a></p>
+  <div class="row row-cols-auto">
+    <div class="col">
+      <button class="btn btn-secondary" on:click={() => modalStore.show('thingOne')}>Thing One Modal</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-outline-secondary" on:click={() => modalStore.show('thingTwo')}>Thing Two Modal</button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <a href="/about">About</a>
+  </div>
 </main>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>

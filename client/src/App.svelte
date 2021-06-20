@@ -20,6 +20,6 @@
 </script>
 
 <Topnav />
-<div class="container">
+<div class="container pt-4">
   <svelte:component this={component} />
 </div>

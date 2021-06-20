@@ -124,26 +124,17 @@ class UserStore extends Store<IUserStore> {
     }
   }
 
-  // /**
-  //  * Forgot
-  //  */
-  // forgot(options){
-  //     this.request('put', '/users/forgot', 'forgot', options)
-  // }
-
-  // /**
-  //  * Reset
-  //  */
-  // reset(options){
-
-  //     this.put('/users/reset', options)
-  //     .then((data) => {
-  //         localStorage.setItem('token', data.token)
-  //         this.self = this.getCurrent()
-  //         this.emit('reset.success')
-  //     })
-  //     .fail(this.emitRequestError.bind(this))
-  // }
+  /**
+   * Forgot Password
+   */
+   async forgotPassword({ email }: Pick<IUser, 'email'>) {
+    const { data, errors } = await this.graphQl<{forgotPassword?: { message: string }}>(
+    'mutation forgotPassword($email: Email!){ forgotPassword(user: { email: $email}) { message }} ',
+    { email })
+    if(errors) alertStore.add(errors)
+    if(data?.forgotPassword?.message)
+      alertStore.add({message: data.forgotPassword.message})
+  }
 
 }
 

@@ -39,8 +39,10 @@ class AlertStore extends Store<IAlertStore> {
   /**
    * Add
    */
-  add(addAlerts: IAlert[]) {
+  add(addAlerts: IAlert | IAlert[]) {
     const alerts: IAlert[] = []
+    if(!Array.isArray(addAlerts))
+      addAlerts = [addAlerts]
     addAlerts.forEach(alert => {
       alert.type = alert.type || 'info'
 

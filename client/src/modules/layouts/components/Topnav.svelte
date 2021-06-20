@@ -25,36 +25,32 @@
 <Alerts />
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/">
-    <img class="logo" alt="gravel" src="/images/logo.png" /> gravel
-    </a>
-  </div>
-  {#if !$userStore.self._id}
-    <div class="container">
-    <ul class="nav navbar-nav">
-      <li>
-      <button class="btn btn-default" on:click={() => page('/users/signin')}>Sign In</button>
-      <button class="btn btn-primary margin-left-sm" on:click={() => page('/users/signup')}>Sign Up</button>
-      </li>
-    </ul>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+      <img class="logo" alt="gravel" src="/images/logo.png" /> gravel
+      </a>
     </div>
-  {:else}
-    <div class="container">
-    <ul class="nav navbar-nav main-menu">
-      <li>
-      <Dropdown
-        trigger={{label: $userStore.self.firstName}}
-        links={[
-        {label: 'Account', to: '/users/account'},
-        {divider: true},
-        {label: 'Sign Out', handleClick: handleSignOut}
-        ]}
-      />
-      </li>
-    </ul>
-    </div>
-  {/if}
+    {#if !$userStore.self._id}
+      <ul class="nav navbar-nav">
+        <li>
+        <button class="btn btn-default" on:click={() => page('/users/signin')}>Sign In</button>
+        <button class="btn btn-primary margin-left-sm" on:click={() => page('/users/signup')}>Sign Up</button>
+        </li>
+      </ul>
+    {:else}
+      <ul class="nav navbar-nav main-menu">
+        <li>
+        <Dropdown
+          trigger={{label: $userStore.self.firstName}}
+          links={[
+          {label: 'Account', to: '/users/account'},
+          {divider: true},
+          {label: 'Sign Out', handleClick: handleSignOut}
+          ]}
+        />
+        </li>
+      </ul>
+    {/if}
   </div>
 </nav>
 
