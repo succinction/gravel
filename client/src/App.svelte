@@ -2,6 +2,7 @@
   import page from 'page'
   import HomePage from './modules/routes/home/pages/HomePage.svelte'
   import AboutPage from './modules/routes/about/pages/AboutPage.svelte'
+  import ParadoxPage from './modules/routes/paradox/pages/ParadoxPage.svelte'
   import usersRoutes from './modules/routes/users/routes'
   import Topnav from './modules/layouts/components/Topnav.svelte'
   import NotfoundPage from './modules/layouts/pages/NotfoundPage.svelte'
@@ -10,6 +11,7 @@
   const routes = [
     { path: '/', component: HomePage },
     { path: '/about', component: AboutPage },
+    { path: '/paradox', component: ParadoxPage },
     ...usersRoutes,
     { path: '/*', component: NotfoundPage },
   ]
